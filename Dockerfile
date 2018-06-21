@@ -1,6 +1,6 @@
 FROM microsoft/dotnet:2.1-sdk
 
-COPY ./services/fake-sender/FakeSender.Api /app
+COPY ./FakeSender.Api /app
 
 WORKDIR /app
 
