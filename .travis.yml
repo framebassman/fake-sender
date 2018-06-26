@@ -14,8 +14,7 @@ script:
   - dotnet test FakeSender.Api.Tests
 deploy:
   provider: script
-  script:
-    - Scripts/deploy.sh
+  script: bash Scripts/deploy.sh
   on:
     branch: master
 notifications:
