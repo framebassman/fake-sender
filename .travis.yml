@@ -3,6 +3,8 @@ dist: trusty
 sudo: required
 mono: none
 dotnet: 2.1.300
+services:
+  - docker
 branches:
   only:
     - master
@@ -10,6 +12,11 @@ branches:
 script:
   - dotnet build
   - dotnet test FakeSender.Api.Tests
+deploy:
+  script:
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin && docker push framebassman/fake-sender
+  on:
+    branch: master
 notifications:
   email:
     on_success: never
