@@ -1,0 +1,16 @@
+language: csharp
+dist: trusty
+sudo: required
+mono: none
+dotnet: 2.1.0
+branches:
+  only:
+    - master
+    - dev
+script:
+  - dotnet build
+  - dotnet test FakeSender.Api.Tests
+notifications:
+  email:
+    on_success: never
+    on_failure: always
