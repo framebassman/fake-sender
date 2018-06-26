@@ -13,6 +13,7 @@ script:
   - dotnet build
   - dotnet test FakeSender.Api.Tests
 deploy:
+  provider: script
   script:
     - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin && docker push framebassman/fake-sender
   on:
