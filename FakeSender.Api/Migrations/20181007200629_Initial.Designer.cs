@@ -2,22 +2,20 @@
 using FakeSender.Api.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage;
-using System;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FakeSender.Api.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20181008155438_Initial")]
+    [Migration("20181007200629_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.0.3-rtm-10026");
+                .HasAnnotation("ProductVersion", "2.1.4-rtm-31024");
 
             modelBuilder.Entity("FakeSender.Api.Models.ApnsQuery", b =>
                 {
