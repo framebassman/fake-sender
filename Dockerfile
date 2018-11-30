@@ -2,6 +2,7 @@ FROM microsoft/dotnet:2.2.100-preview2-sdk AS build-env
 COPY ./FakeSender.Api /app
 WORKDIR /app
 RUN dotnet restore
+RUN dotnet ef database update
 RUN dotnet publish -c Release -o out
 
 FROM microsoft/dotnet:2.2-aspnetcore-runtime
