@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using System;
+using System.Collections.Generic;
 
 namespace FakeSender.Api.Migrations
 {
@@ -12,8 +14,8 @@ namespace FakeSender.Api.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    PushToken = table.Column<string>(nullable: true),
-                    ApplePassTypeId = table.Column<string>(nullable: true)
+                    ApplePassTypeId = table.Column<string>(nullable: true),
+                    PushToken = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -26,10 +28,10 @@ namespace FakeSender.Api.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    To = table.Column<string>(nullable: true),
-                    Subject = table.Column<string>(nullable: true),
+                    Attachments = table.Column<string>(nullable: true),
                     Html = table.Column<string>(nullable: true),
-                    Attachments = table.Column<string>(nullable: true)
+                    Subject = table.Column<string>(nullable: true),
+                    To = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -42,8 +44,8 @@ namespace FakeSender.Api.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    To = table.Column<string>(nullable: true),
-                    Message = table.Column<string>(nullable: true)
+                    Message = table.Column<string>(nullable: true),
+                    To = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

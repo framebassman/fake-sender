@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using FakeSender.Api.Data;
 using FakeSender.Api.Models;
@@ -27,7 +28,7 @@ namespace FakeSender.Api.Controllers
             {
                 foreach (var sms in smsList)
                 {
-                    _logger.LogInformation($"Received message to {sms.To}");   
+                    _logger.LogInformation($"{DateTime.Now}: Received message to {sms.To}");   
                 }
                 
                 _db.SmsBox.AddRangeAsync(smsList);

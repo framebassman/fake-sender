@@ -14,6 +14,7 @@ namespace FakeSender.Api
             Serilog.Log.Logger = new LoggerConfiguration()
                 .ReadFrom.Configuration(BuildConfiguration())
                 .Enrich.FromLogContext()
+                .WriteTo.Console()
                 .CreateLogger();
 
             try
