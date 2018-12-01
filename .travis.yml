@@ -7,8 +7,7 @@ services:
   - docker
 branches:
   only:
-    - master
-    - dev
+    - /.*/
 script:
   - dotnet build
   - dotnet test FakeSender.Api.Tests
