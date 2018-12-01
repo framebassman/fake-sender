@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Moq;
 
-namespace FakeSender.Api.Tests.ControllersTests
+namespace FakeSender.Api.Tests.Unit.ControllersTests
 {
     public class ControllerTestsBase<T>
     {

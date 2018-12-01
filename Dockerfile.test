@@ -1,5 +1,5 @@
 FROM microsoft/dotnet:2.2.100-preview2-sdk
 COPY . /tests
-WORKDIR /tests/FakeSender.Api.Tests
+WORKDIR /tests/FakeSender.Api.Tests.Unit
 RUN dotnet test
 
