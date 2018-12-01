@@ -5,7 +5,7 @@ using FakeSender.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Xunit;
 
-namespace FakeSender.Api.Tests.Unit.ControllersTests
+namespace FakeSender.Api.Tests.ControllersTests
 {
     public class ApnsControllerTests : ControllerTestsBase<ApnsController>
     {        
