@@ -13,7 +13,7 @@
     <PackageReference Include="Serilog.Settings.Configuration" Version="3.0.1" />
     <PackageReference Include="Serilog.Sinks.ColoredConsole" Version="3.0.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="4.0.1-dev-00801" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="3.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-beta" />
     <Content Include="Data\*.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
