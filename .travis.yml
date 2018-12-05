@@ -17,7 +17,6 @@ branches:
 script:
   - dotnet build
   - dotnet test FakeSender.Api.Tests
-  - dotnet test FakeSender.Tests
 deploy:
   provider: script
   script: bash Scripts/deploy.sh
