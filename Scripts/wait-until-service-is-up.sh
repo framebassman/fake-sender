@@ -14,7 +14,7 @@ function wait_service {
 fakeSenderPort=5050
 
 host="localhost"
-if [ "$DOCKER_HOST" = '' ]; then
+if [ "$DOCKER_HOST" != '' ]; then
   host=$(docker-machine ip $DOCKER_MACHINE_NAME)
 fi
 
