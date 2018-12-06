@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace FakeSender.Api
@@ -28,7 +29,7 @@ namespace FakeSender.Api
             services.AddDbContext<ApplicationContext>(options => options.UseSqlite(_configuration.GetConnectionString("DefaultConnection")));
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new Info { Title = "Fake Sender Api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Fake Sender Api", Version = "v1" });
             });
         }
 

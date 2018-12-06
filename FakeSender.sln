@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeSender.Api", "FakeSende
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeSender.Api.Tests", "FakeSender.Api.Tests\FakeSender.Api.Tests.csproj", "{CBEBD931-5550-4586-80FA-893283CEB520}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FakeSender.Tests", "FakeSender.Tests\FakeSender.Tests.csproj", "{5FDE0287-671C-44D2-B96A-9B5BC4805F86}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{CBEBD931-5550-4586-80FA-893283CEB520}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CBEBD931-5550-4586-80FA-893283CEB520}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CBEBD931-5550-4586-80FA-893283CEB520}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FDE0287-671C-44D2-B96A-9B5BC4805F86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FDE0287-671C-44D2-B96A-9B5BC4805F86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FDE0287-671C-44D2-B96A-9B5BC4805F86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FDE0287-671C-44D2-B96A-9B5BC4805F86}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
