@@ -11,7 +11,7 @@ namespace FakeSender.Tests
         public void SmsApi_AfterStartingApplication_ReturnsOK()
         {
             // Arrange
-            var client = new RestClient("http://localhost:5050");
+            var client = new RestClient($"http://{this.DockerHost()}:5050");
             var request = new RestRequest("api/sms", Method.GET);
 
             // Act
@@ -19,6 +19,16 @@ namespace FakeSender.Tests
 
             // Assert
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        }
+
+        private string DockerHost()
+        {
+            var host = "localhost";
+            var dockerHost = Environment.GetEnvironmentVariable("DOCKER_HOST");
+            if (!string.IsNullOrEmpty(dockerHost)) {
+                host = new UriBuilder(dockerHost).Host;
+            }
+            return host;
         }
     }
 }
