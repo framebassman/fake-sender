@@ -4,14 +4,16 @@ namespace FakeSender.Api.Controllers.Responses.SmsRu.Validators
 {
     public class MobilePhoneValidator : Validator
     {
+        private readonly Phone _phone;
+        
         public MobilePhoneValidator(Phone phone)
-            : base(phone)
         {
+            this._phone = phone;
         }
 
         public override PhoneReport Answer()
         {
-            if (this.Phone.ToString().StartsWith("79") && this.Phone.ToString().Length == 11)
+            if (this._phone.ToString().StartsWith("79") && this._phone.ToString().Length == 11)
             {
                 return new OkPhoneReport();
             }

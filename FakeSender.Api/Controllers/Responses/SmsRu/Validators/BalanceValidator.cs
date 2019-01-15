@@ -5,11 +5,6 @@ namespace FakeSender.Api.Controllers.Responses.SmsRu.Validators
 {
     public class BalanceValidator : Validator
     {
-        public BalanceValidator(Phone phone)
-            : base(phone)
-        {
-        }
-
         public override PhoneReport Answer()
         {
             if (this.IsBalancePositive())

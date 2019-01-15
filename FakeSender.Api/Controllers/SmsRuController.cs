@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using FakeSender.Api.Controllers.Responses;
 using FakeSender.Api.Controllers.Responses.SmsRu;
 using FakeSender.Api.Controllers.Responses.SmsRu.Validators;
@@ -34,7 +35,11 @@ namespace FakeSender.Api.Controllers
             var msg = Uri.UnescapeDataString(encodedMsg);
             var phone = new Phone(to);
             this._logger.LogInformation($"Received message to {phone}");
-            var validator = new MobilePhoneValidator(phone);
+            var validator = new Cascade(new List<Validator>()
+            {
+                new MobilePhoneValidator(phone),
+                new BalanceValidator()
+            });
             return new OkObjectResult(
                 new Ok(
                     phone,
