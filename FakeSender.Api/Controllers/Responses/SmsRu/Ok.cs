@@ -5,7 +5,7 @@ namespace FakeSender.Api.Controllers.Responses.SmsRu
 {
     public class Ok : Response
     {
-        public Ok(Phone phone)
+        public Ok(Phone phone, PhoneReport report)
         {
             Status = "OK";
             StatusCode = 200;
@@ -14,7 +14,7 @@ namespace FakeSender.Api.Controllers.Responses.SmsRu
             {
                 {
                     phone,
-                    new OkPhoneReport()
+                    report
                 }
             };
         }

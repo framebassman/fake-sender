@@ -1,6 +1,7 @@
 using System;
 using FakeSender.Api.Controllers.Responses;
 using FakeSender.Api.Controllers.Responses.SmsRu;
+using FakeSender.Api.Controllers.Responses.SmsRu.Validators;
 using FakeSender.Api.Data;
 using FakeSender.Api.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -33,9 +34,15 @@ namespace FakeSender.Api.Controllers
         )
         {
             var msg = Uri.UnescapeDataString(encodedMsg); 
-            _logger.LogInformation($"Received message to {to}");
-            _logger.LogInformation($"Message: {msg}");
-            return new OkObjectResult(new Ok(new Phone(to)));
+            var phone = new Phone(to);
+            _logger.LogInformation($"Received message to {phone}");
+            var validator = new MobilePhoneValidator(phone);
+            return new OkObjectResult(
+                new Ok(
+                    phone,
+                    validator.Answer()
+                )
+            );
         }
     }
 }
