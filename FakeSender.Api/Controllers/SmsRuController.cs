@@ -33,7 +33,7 @@ namespace FakeSender.Api.Controllers
             [FromQuery] String to
         )
         {
-            var msg = Uri.UnescapeDataString(encodedMsg); 
+            var msg = Uri.UnescapeDataString(encodedMsg);
             var phone = new Phone(to);
             _logger.LogInformation($"Received message to {phone}");
             var validator = new MobilePhoneValidator(phone);

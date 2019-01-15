@@ -17,7 +17,6 @@ namespace FakeSender.Api.Controllers.Responses.SmsRu.Validators
             }
 
             return new BadPhoneReport(
-                "ERROR",
                 202,
                 "Неправильно указан номер телефона получателя, либо на него нет маршрута"
             );
