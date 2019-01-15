@@ -26,11 +26,13 @@ namespace FakeSender.Api.Controllers
             [FromQuery] Guid apiKey,
             [FromQuery] String from,
             [FromQuery] Int32 json,
-            [FromQuery] String msg,
+            [FromQuery(Name = "msg")] String encodedMsg,
             [FromQuery] String to
         )
         {
-            _logger.LogInformation($"Received message to {to}"); 
+            var msg = Uri.UnescapeDataString(encodedMsg); 
+            _logger.LogInformation($"Received message to {to}");
+            _logger.LogInformation($"Message: {msg}");
             return new OkResult();
         }
     }
