@@ -15,12 +15,17 @@ namespace FakeSender.Api.Controllers
     {
         private readonly ApplicationContext _db;
         private readonly ILogger _logger;
+        private readonly List<Validator> _validators;
         
         public SmsRuController(ApplicationContext context, ILogger<SmsRuController> logger) 
             : base(context, context.SmsBox, logger)
         {
             this._db = context;
             this._logger = logger;
+            this._validators = new List<Validator>
+            {
+                new BalanceValidator()
+            };
         }
 
         [HttpGet("send")]
@@ -35,15 +40,12 @@ namespace FakeSender.Api.Controllers
             var msg = Uri.UnescapeDataString(encodedMsg);
             var phone = new Phone(to);
             this._logger.LogInformation($"Received message to {phone}");
-            var validator = new Cascade(new List<Validator>()
-            {
-                new MobilePhoneValidator(phone),
-                new BalanceValidator()
-            });
+            this._validators.Add(new MobilePhoneValidator(phone));
+            var cascade = new Cascade(this._validators);
             return new OkObjectResult(
                 new Ok(
                     phone,
-                    validator.Answer()
+                    cascade.Answer()
                 )
             );
         }

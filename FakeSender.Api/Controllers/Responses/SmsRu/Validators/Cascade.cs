@@ -14,7 +14,15 @@ namespace FakeSender.Api.Controllers.Responses.SmsRu.Validators
 
         public override PhoneReport Answer()
         {
-            throw new System.NotImplementedException();
+            foreach (var validator in this._validators)
+            {
+                if (validator.Answer() is BadPhoneReport)
+                {
+                    return validator.Answer();
+                }
+            }
+
+            return new OkPhoneReport();
         }
     }
 }
