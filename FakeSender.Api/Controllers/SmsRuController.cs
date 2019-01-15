@@ -23,7 +23,7 @@ namespace FakeSender.Api.Controllers
 
         [HttpGet("send")]
         public IActionResult Send(
-            [FromQuery] Guid apiKey,
+            [FromQuery(Name = "api_id")] Guid apiId,
             [FromQuery] String from,
             [FromQuery] Int32 json,
             [FromQuery(Name = "msg")] String encodedMsg,
