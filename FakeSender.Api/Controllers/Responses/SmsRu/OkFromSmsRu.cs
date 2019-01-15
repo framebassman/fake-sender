@@ -3,9 +3,9 @@ using FakeSender.Api.Controllers.Responses.SmsRu.Reports;
 
 namespace FakeSender.Api.Controllers.Responses.SmsRu
 {
-    public class Ok : Response
+    public class OkFromSmsRu : Response
     {
-        public Ok(Phone phone, PhoneReport report)
+        public OkFromSmsRu(Phone phone, PhoneReport report)
         {
             this.Status = "OK";
             this.StatusCode = 200;

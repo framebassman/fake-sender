@@ -43,7 +43,7 @@ namespace FakeSender.Api.Controllers
             this._validators.Add(new MobilePhoneValidator(phone));
             var cascade = new Cascade(this._validators);
             return new OkObjectResult(
-                new Ok(
+                new OkFromSmsRu(
                     phone,
                     cascade.Answer()
                 )
