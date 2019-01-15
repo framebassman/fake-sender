@@ -1,9 +1,9 @@
 using System;
 using Newtonsoft.Json;
 
-namespace FakeSender.Api.Controllers.Responses.SmsRu
+namespace FakeSender.Api.Controllers.Responses.SmsRu.Reports
 {
-    public class PhoneReport
+    public abstract class PhoneReport
     {
         [JsonProperty("status")]
         public String Status;
@@ -11,14 +11,10 @@ namespace FakeSender.Api.Controllers.Responses.SmsRu
         [JsonProperty("status_code")]
         public Int32 StatusCode;
 
-        [JsonProperty("status_text")]
-        public String StatusText;
-
-        public PhoneReport(String status, Int32 code, String text)
+        public PhoneReport(String status, Int32 code)
         {
             Status = status;
             StatusCode = code;
-            StatusText = text;
         }
     }
 }

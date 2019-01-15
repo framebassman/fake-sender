@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using FakeSender.Api.Controllers.Responses.SmsRu.Reports;
 using Newtonsoft.Json;
 
 namespace FakeSender.Api.Controllers.Responses.SmsRu

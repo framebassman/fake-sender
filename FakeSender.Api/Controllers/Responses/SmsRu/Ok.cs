@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using FakeSender.Api.Controllers.Responses.SmsRu.Reports;
 
 namespace FakeSender.Api.Controllers.Responses.SmsRu
 {
@@ -13,7 +14,7 @@ namespace FakeSender.Api.Controllers.Responses.SmsRu
             {
                 {
                     phone,
-                    new PhoneReport("OK", 200, "Sms was sent")
+                    new OkPhoneReport()
                 }
             };
         }
