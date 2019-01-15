@@ -12,7 +12,7 @@ namespace FakeSender.Api.Controllers.Responses.SmsRu.Reports
             : base(status, code)
         {
             Status = "OK";
-            StatusCode = 200;
+            StatusCode = 100;
             SmsId = "1111_2222";
         }
     }
