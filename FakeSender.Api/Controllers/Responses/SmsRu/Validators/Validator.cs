@@ -4,11 +4,11 @@ namespace FakeSender.Api.Controllers.Responses.SmsRu.Validators
 {
     public abstract class Validator
     {
-        protected Phone Phone;
+        protected readonly Phone Phone;
         
         protected Validator(Phone phone)
         {
-            Phone = phone;
+            this.Phone = phone;
         }
 
         public abstract PhoneReport Answer();

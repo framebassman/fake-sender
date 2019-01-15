@@ -13,8 +13,8 @@ namespace FakeSender.Api.Controllers.Responses.SmsRu.Reports
 
         public PhoneReport(String status, Int32 code)
         {
-            Status = status;
-            StatusCode = code;
+            this.Status = status;
+            this.StatusCode = code;
         }
     }
 }

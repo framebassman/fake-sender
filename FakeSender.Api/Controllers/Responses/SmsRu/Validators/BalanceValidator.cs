@@ -29,7 +29,7 @@ namespace FakeSender.Api.Controllers.Responses.SmsRu.Validators
 
         private Boolean RandomBoolean()
         {
-            Random gen = new Random();
+            var gen = new Random();
             int prob = gen.Next(100);
             return prob <= 20;
         }

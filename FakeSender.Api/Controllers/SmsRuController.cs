@@ -5,8 +5,6 @@ using FakeSender.Api.Controllers.Responses.SmsRu.Validators;
 using FakeSender.Api.Data;
 using FakeSender.Api.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Rewrite.Internal.UrlMatches;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
 namespace FakeSender.Api.Controllers
@@ -20,8 +18,8 @@ namespace FakeSender.Api.Controllers
         public SmsRuController(ApplicationContext context, ILogger<SmsRuController> logger) 
             : base(context, context.SmsBox, logger)
         {
-            _db = context;
-            _logger = logger;
+            this._db = context;
+            this._logger = logger;
         }
 
         [HttpGet("send")]
@@ -35,7 +33,7 @@ namespace FakeSender.Api.Controllers
         {
             var msg = Uri.UnescapeDataString(encodedMsg);
             var phone = new Phone(to);
-            _logger.LogInformation($"Received message to {phone}");
+            this._logger.LogInformation($"Received message to {phone}");
             var validator = new MobilePhoneValidator(phone);
             return new OkObjectResult(
                 new Ok(

@@ -2,16 +2,16 @@ namespace FakeSender.Api.Controllers.Responses
 {
     public class Phone
     {
-        private string _number;
+        private readonly string _number;
         
         public Phone(string source)
         {
-            _number = source;
+            this._number = source;
         }
 
         public override string ToString()
         {
-            return _number;
+            return this._number;
         }
     }
 }

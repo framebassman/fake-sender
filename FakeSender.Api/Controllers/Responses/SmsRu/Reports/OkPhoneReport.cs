@@ -11,9 +11,9 @@ namespace FakeSender.Api.Controllers.Responses.SmsRu.Reports
         public OkPhoneReport(string status = "OK", int code = 200)
             : base(status, code)
         {
-            Status = "OK";
-            StatusCode = 100;
-            SmsId = "1111_2222";
+            this.Status = "OK";
+            this.StatusCode = 100;
+            this.SmsId = "1111_2222";
         }
     }
 }

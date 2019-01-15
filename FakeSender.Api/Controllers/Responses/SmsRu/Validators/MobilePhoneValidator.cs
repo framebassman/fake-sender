@@ -11,7 +11,7 @@ namespace FakeSender.Api.Controllers.Responses.SmsRu.Validators
 
         public override PhoneReport Answer()
         {
-            if (Phone.ToString().StartsWith("79") && Phone.ToString().Length == 11)
+            if (this.Phone.ToString().StartsWith("79") && this.Phone.ToString().Length == 11)
             {
                 return new OkPhoneReport();
             }

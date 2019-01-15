@@ -7,10 +7,10 @@ namespace FakeSender.Api.Controllers.Responses.SmsRu
     {
         public Ok(Phone phone, PhoneReport report)
         {
-            Status = "OK";
-            StatusCode = 200;
-            Balance = Random.Next() / 100.0;
-            Sms = new Dictionary<Phone, PhoneReport>
+            this.Status = "OK";
+            this.StatusCode = 200;
+            this.Balance = Random.Next() / 100.0;
+            this.Sms = new Dictionary<Phone, PhoneReport>
             {
                 {
                     phone,
