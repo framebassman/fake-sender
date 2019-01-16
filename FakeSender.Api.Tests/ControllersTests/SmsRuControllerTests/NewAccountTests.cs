@@ -12,7 +12,7 @@ namespace FakeSender.Api.Tests.ControllersTests.SmsRuControllerTests
     {
         private readonly SmsRuController _controller;
 
-        public NewAccountTests()
+        public NewAccountTests() : base("new_accounts")
         {
             this._controller = new SmsRuController(this.Db, this.Logger);
         }
@@ -20,7 +20,7 @@ namespace FakeSender.Api.Tests.ControllersTests.SmsRuControllerTests
         public override void Dispose()
         {
             this.Db.SmsBox.RemoveRange(this.Db.SmsBox);
-            this.Db.Accounts.RemoveRange(this.Db.Accounts);
+//            this.Db.Accounts.RemoveRange(this.Db.Accounts);
             this.Db.SaveChanges();
         }
 

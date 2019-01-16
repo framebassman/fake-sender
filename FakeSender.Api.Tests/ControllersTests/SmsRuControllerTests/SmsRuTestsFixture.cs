@@ -11,8 +11,7 @@ namespace FakeSender.Api.Tests.ControllersTests.SmsRuControllerTests
         protected readonly Account WithNegativeBalance;
         protected readonly ApplicationContext Db;
         
-        protected SmsRuTestsFixture()
-            : base("sms_ru")
+        protected SmsRuTestsFixture(string dbName) : base(dbName)
         {
             this.Db = new ApplicationContext(this.Options);
             this.WithPositiveBalance = new Account

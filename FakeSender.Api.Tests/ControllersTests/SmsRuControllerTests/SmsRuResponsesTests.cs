@@ -13,7 +13,7 @@ namespace FakeSender.Api.Tests.ControllersTests.SmsRuControllerTests
     {
         private readonly SmsRuController _controller;
 
-        public SmsRuResponsesTests()
+        public SmsRuResponsesTests() : base("smsru_responses")
         {
             this._controller = new SmsRuController(this.Db, this.Logger);
         }
