@@ -12,10 +12,9 @@ namespace FakeSender.Api.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    EntityId = table.Column<string>(nullable: true),
                     Type = table.Column<string>(nullable: false),
                     Service = table.Column<string>(nullable: false),
-                    Balance = table.Column<int>(nullable: false),
+                    Balance = table.Column<double>(nullable: false),
                     Login = table.Column<string>(nullable: false)
                 },
                 constraints: table =>

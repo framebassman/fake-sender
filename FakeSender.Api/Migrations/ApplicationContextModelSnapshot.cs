@@ -20,9 +20,7 @@ namespace FakeSender.Api.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Balance");
-
-                    b.Property<string>("EntityId");
+                    b.Property<double>("Balance");
 
                     b.Property<string>("Login")
                         .IsRequired();

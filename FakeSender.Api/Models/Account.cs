@@ -11,7 +11,7 @@ namespace FakeSender.Api.Models
         [Required]
         public String Service { get; set; }
         [Required]
-        public Int32 Balance { get; set; }
+        public Double Balance { get; set; }
         [Required]
         public String Login { get; set; }
         [NotMapped]

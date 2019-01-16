@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FakeSender.Api.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20190116073612_Accounts")]
+    [Migration("20190116103516_Accounts")]
     partial class Accounts
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,9 +22,7 @@ namespace FakeSender.Api.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("Balance");
-
-                    b.Property<string>("EntityId");
+                    b.Property<double>("Balance");
 
                     b.Property<string>("Login")
                         .IsRequired();
