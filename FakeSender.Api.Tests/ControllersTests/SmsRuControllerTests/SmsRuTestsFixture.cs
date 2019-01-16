@@ -13,7 +13,7 @@ namespace FakeSender.Api.Tests.ControllersTests.SmsRuControllerTests
         
         protected SmsRuTestsFixture()
         {
-            this.Db = new ApplicationContext(Options);
+            this.Db = new ApplicationContext(this.Options);
             this.WithPositiveBalance = new Account
             {
                 Service = "smsru",
