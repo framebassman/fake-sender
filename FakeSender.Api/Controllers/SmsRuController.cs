@@ -36,8 +36,12 @@ namespace FakeSender.Api.Controllers
             var msg = Uri.UnescapeDataString(encodedMsg);
             var phone = new Phone(to);
             this._logger.LogInformation($"Received message to {phone}");
-            var validators = this.CreateValidators(from, phone);
-            var cascade = new Cascade(validators);
+            var cascade = new Cascade(
+                this.CreateValidators(
+                    this.Find(from),
+                    phone
+                )
+            );
             return new OkObjectResult(
                 new OkFromSmsRu(
                     phone,
@@ -46,9 +50,26 @@ namespace FakeSender.Api.Controllers
             );
         }
 
-        private IEnumerable<Validator> CreateValidators(string from, Phone phone)
+        private IEnumerable<Validator> CreateValidators(Account account, Phone phone)
         {
-            throw new NotImplementedException();
+            return new List<Validator>
+            {
+                new BalanceValidator(account),
+                new MobilePhoneValidator(phone)
+            };
+        }
+
+        private Account Find(string from)
+        {
+            try
+            {
+                return this._db.Accounts.First(a => a.Login == from);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
     }
 }
