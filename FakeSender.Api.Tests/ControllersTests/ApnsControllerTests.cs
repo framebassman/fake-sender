@@ -9,6 +9,11 @@ namespace FakeSender.Api.Tests.ControllersTests
 {
     public class ApnsControllerTests : ControllerTestsBase<ApnsController>
     {        
+        public ApnsControllerTests()
+            : base("apns")
+        {
+        }
+        
         [Fact]
         public void PostQuery_ReturnsApnsQuery_SavedInDb()
         {
