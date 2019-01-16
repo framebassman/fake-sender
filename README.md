@@ -5,5 +5,5 @@ Docker images are located on [docker hub](https://hub.docker.com/r/framebassman/
 ### CI status
 | Branch        | Travis-CI     |
 | ------------- |:-------------:|
-| master        | ![Master status](https://api.travis-ci.org/FrameBassman/fake-sender.svg?branch=master "master status") |
-| dev           | ![Dev status](https://api.travis-ci.org/FrameBassman/fake-sender.svg?branch=dev "dev status")|
+| master        | ![Master status](https://api.travis-ci.com/FrameBassman/fake-sender.svg?branch=master "master status") |
+| dev           | ![Dev status](https://api.travis-ci.com/FrameBassman/fake-sender.svg?branch=dev "dev status")|
