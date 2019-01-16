@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace FakeSender.Api.Controllers.Responses
 {
     public class Phone
@@ -7,6 +9,15 @@ namespace FakeSender.Api.Controllers.Responses
         public Phone(string source)
         {
             this._number = source;
+        }
+
+        public Phone(int region, int code, int number)
+        {
+            this._number = new StringBuilder()
+                .Append(region)
+                .Append(code)
+                .Append(number)
+                .ToString();
         }
 
         public override string ToString()
