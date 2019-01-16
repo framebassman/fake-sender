@@ -10,6 +10,11 @@ namespace FakeSender.Api.Tests.ControllersTests
 {
     public class SmsControllerTests : ControllerTestsBase<SmsController>
     {
+        public SmsControllerTests()
+            : base("sms")
+        {
+        }
+        
         [Fact]
         public void PostSmsList_ReturnsSms_SavedInDb()
         {

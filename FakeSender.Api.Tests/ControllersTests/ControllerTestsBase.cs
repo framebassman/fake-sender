@@ -1,4 +1,5 @@
-﻿using FakeSender.Api.Data;
+﻿using System;
+using FakeSender.Api.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Moq;
@@ -10,10 +11,10 @@ namespace FakeSender.Api.Tests.ControllersTests
         protected readonly DbContextOptions<ApplicationContext> Options;
         protected readonly ILogger<T> Logger;
 
-        public ControllerTestsBase()
+        public ControllerTestsBase(String databaseName)
         {
             Options = new DbContextOptionsBuilder<ApplicationContext>()
-                .UseInMemoryDatabase(databaseName: "Add_writes_to_database")
+                .UseInMemoryDatabase(databaseName: databaseName)
                 .Options;
             Logger = new Mock<ILogger<T>>().Object;
         }
