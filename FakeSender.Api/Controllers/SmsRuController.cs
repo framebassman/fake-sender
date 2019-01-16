@@ -65,14 +65,23 @@ namespace FakeSender.Api.Controllers
 
         private Account Find(string from)
         {
-            try
+            var candidate = this._db.Accounts.FirstOrDefault(a => a.Login == from);
+            if (candidate == null)
             {
-                return this._db.Accounts.First(a => a.Login == from);
+                this._logger.LogWarning($"There is no account for {from} login. Let's create it.");
+                return this._db.Accounts.Add(
+                    new Account
+                    {
+                        Type = "sms",
+                        Service = "smsru",
+                        Login = from,
+                        Balance = 0.5
+                    }
+                ).Entity;
             }
-            catch (Exception e)
+            else
             {
-                Console.WriteLine(e);
-                throw;
+                return candidate;
             }
         }
         
@@ -82,7 +91,7 @@ namespace FakeSender.Api.Controllers
             {
                 this._db.SmsBox.Add(sms);
                 this._db.SaveChanges();
-                this._logger.LogInformation($"Message was saved");
+                this._logger.LogInformation($"Message was saved: {sms.ToJson()}");
             }
             else
             {
