@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FakeSender.Api.Controllers.Responses;
 using FakeSender.Api.Controllers.Responses.SmsRu;
+using FakeSender.Api.Controllers.Responses.SmsRu.Reports;
 using FakeSender.Api.Controllers.Responses.SmsRu.Validators;
 using FakeSender.Api.Data;
 using FakeSender.Api.Models;
@@ -42,6 +43,7 @@ namespace FakeSender.Api.Controllers
                     phone
                 )
             );
+            this.TryToSaveMessage(new Sms{Message = msg, To = phone.ToString()}, cascade.Answer());
             return new OkObjectResult(
                 new OkFromSmsRu(
                     phone,
@@ -69,6 +71,20 @@ namespace FakeSender.Api.Controllers
             {
                 Console.WriteLine(e);
                 throw;
+            }
+        }
+        
+        private void TryToSaveMessage(Sms sms, PhoneReport answer)
+        {
+            if (answer is OkPhoneReport)
+            {
+                this._db.SmsBox.Add(sms);
+                this._db.SaveChanges();
+                this._logger.LogInformation($"Message was saved");
+            }
+            else
+            {
+                this._logger.LogInformation($"Message was not saved: {((BadPhoneReport) answer).StatusText}");
             }
         }
     }
