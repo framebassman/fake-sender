@@ -20,7 +20,7 @@ namespace FakeSender.Api.Tests.ControllersTests.SmsRuControllerTests
         public override void Dispose()
         {
             this.Db.SmsBox.RemoveRange(this.Db.SmsBox);
-//            this.Db.Accounts.RemoveRange(this.Db.Accounts);
+            this.Db.Accounts.RemoveRange(this.Db.Accounts);
             this.Db.SaveChanges();
         }
 
