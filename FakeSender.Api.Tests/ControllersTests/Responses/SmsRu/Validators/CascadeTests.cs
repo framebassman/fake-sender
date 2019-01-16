@@ -2,6 +2,9 @@ using System.Collections.Generic;
 using FakeSender.Api.Controllers.Responses;
 using FakeSender.Api.Controllers.Responses.SmsRu.Reports;
 using FakeSender.Api.Controllers.Responses.SmsRu.Validators;
+using FakeSender.Api.Data;
+using FakeSender.Api.Models;
+using Microsoft.EntityFrameworkCore;
 using Xunit;
 
 namespace FakeSender.Api.Tests.ControllersTests.Responses.SmsRu.Validators
@@ -12,9 +15,16 @@ namespace FakeSender.Api.Tests.ControllersTests.Responses.SmsRu.Validators
         
         public CascadeTests()
         {
+            var smsRu = new Account()
+            {
+                Type = "sms",
+                Service = "smsru",
+                Login = "test",
+                Balance = 0
+            };
             this._cascade = new Cascade(new List<Validator>
             {
-                new BalanceValidator(),
+                new BalanceValidator(smsRu),
                 new MobilePhoneValidator(new Phone("78123333333"))
             });
         }

@@ -1,10 +1,18 @@
 using System;
 using FakeSender.Api.Controllers.Responses.SmsRu.Reports;
+using FakeSender.Api.Models;
 
 namespace FakeSender.Api.Controllers.Responses.SmsRu.Validators
 {
     public class BalanceValidator : Validator
     {
+        private readonly Account _account;
+        
+        public BalanceValidator(Account account)
+        {
+            this._account = account;
+        }
+        
         public override PhoneReport Answer()
         {
             if (this.IsBalancePositive())
@@ -19,14 +27,7 @@ namespace FakeSender.Api.Controllers.Responses.SmsRu.Validators
 
         private Boolean IsBalancePositive()
         {
-            return this.RandomBoolean();
-        }
-
-        private Boolean RandomBoolean()
-        {
-            var gen = new Random();
-            int prob = gen.Next(100);
-            return prob <= 20;
+            return this._account.Balance > 0;
         }
     }
 }

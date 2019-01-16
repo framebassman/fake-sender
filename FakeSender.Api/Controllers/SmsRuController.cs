@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using FakeSender.Api.Controllers.Responses;
 using FakeSender.Api.Controllers.Responses.SmsRu;
 using FakeSender.Api.Controllers.Responses.SmsRu.Validators;
@@ -15,17 +16,12 @@ namespace FakeSender.Api.Controllers
     {
         private readonly ApplicationContext _db;
         private readonly ILogger _logger;
-        private readonly List<Validator> _validators;
         
         public SmsRuController(ApplicationContext context, ILogger<SmsRuController> logger) 
             : base(context, context.SmsBox, logger)
         {
             this._db = context;
             this._logger = logger;
-            this._validators = new List<Validator>
-            {
-                new BalanceValidator()
-            };
         }
 
         [HttpGet("send")]
@@ -40,14 +36,19 @@ namespace FakeSender.Api.Controllers
             var msg = Uri.UnescapeDataString(encodedMsg);
             var phone = new Phone(to);
             this._logger.LogInformation($"Received message to {phone}");
-            this._validators.Add(new MobilePhoneValidator(phone));
-            var cascade = new Cascade(this._validators);
+            var validators = this.CreateValidators(from, phone);
+            var cascade = new Cascade(validators);
             return new OkObjectResult(
                 new OkFromSmsRu(
                     phone,
                     cascade.Answer()
                 )
             );
+        }
+
+        private IEnumerable<Validator> CreateValidators(string from, Phone phone)
+        {
+            throw new NotImplementedException();
         }
     }
 }
