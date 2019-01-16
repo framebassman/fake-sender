@@ -5,7 +5,7 @@ namespace FakeSender.Api.Controllers.Responses.SmsRu.Reports
 {
     public class OkPhoneReport : PhoneReport
     {
-        [JsonProperty]
+        [JsonProperty("sms_id")]
         public string SmsId;
         
         public OkPhoneReport(string status = "OK", int code = 200)
