@@ -8,11 +8,11 @@ using Xunit;
 
 namespace FakeSender.Api.Tests.ControllersTests.SmsRuControllerTests
 {
-    public class SmsShouldBeSaved : SmsRuTestsFixture
+    public class SmsSavingTests : SmsRuTestsFixture
     {
         private readonly SmsRuController _controller;
 
-        public SmsShouldBeSaved()
+        public SmsSavingTests()
         {
             this._controller = new SmsRuController(this.Db, this.Logger);
         }
