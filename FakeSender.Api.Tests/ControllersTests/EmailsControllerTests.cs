@@ -10,6 +10,11 @@ namespace FakeSender.Api.Tests.ControllersTests
 {
     public class EmailsControllerTests : ControllerTestsBase<EmailsController>
     {
+        public EmailsControllerTests()
+            : base("emails")
+        {
+        }
+        
         [Fact]
         public void PostEmailList_ReturnsEmail_SavedInDb()
         {
