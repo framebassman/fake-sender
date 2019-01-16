@@ -17,6 +17,12 @@ namespace FakeSender.Api.Tests.ControllersTests.SmsRuControllerTests
             this._controller = new SmsRuController(this.Db, this.Logger);
         }
 
+        public override void Dispose()
+        {
+            this.Db.SmsBox.RemoveRange(this.Db.SmsBox);
+            this.Db.SaveChanges();
+        }
+
         [Fact]
         public void PhoneIsMobile_And_BalanceIsPositive_Then_SmsShouldBeSaved()
         {

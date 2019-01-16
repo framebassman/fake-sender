@@ -33,10 +33,8 @@ namespace FakeSender.Api.Tests.ControllersTests.SmsRuControllerTests
             this.Db.SaveChanges();
         }
         
-        public void Dispose()
+        public virtual void Dispose()
         {
-            this.Db.Accounts.RemoveRange();
-            this.Db.SaveChanges();
             this.Db.Dispose();
         }
     }
