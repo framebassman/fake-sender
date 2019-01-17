@@ -21,12 +21,6 @@ script:
   - bash Scripts/wait-until-service-is-up.sh
   - dotnet test FakeSender.Tests
   - make stop
-  - git clean -f
-deploy:
-  provider: script
-  script: bash Scripts/deploy.sh
-  on:
-    branch: master
 notifications:
   email:
     on_success: never
