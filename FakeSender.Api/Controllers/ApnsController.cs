@@ -1,4 +1,5 @@
-﻿using FakeSender.Api.Data;
+﻿using System;
+using FakeSender.Api.Data;
 using FakeSender.Api.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -24,7 +25,7 @@ namespace FakeSender.Api.Controllers
             if (query != null)
             {
                 _logger.LogInformation($"Received message to {query.PushToken}");
-                
+                query.ReceivedAt = DateTime.UtcNow;
                 _db.ApnsQueryBox.Add(query);
                 _db.SaveChanges();
                 return Ok(query);

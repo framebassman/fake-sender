@@ -44,7 +44,10 @@ namespace FakeSender.Api.Controllers
                     phone
                 )
             );
-            this.TryToSaveMessage(new Sms{Message = msg, To = phone.ToString()}, cascade.Answer());
+            this.TryToSaveMessage(
+                new Sms{Message = msg, To = phone.ToString(), ReceivedAt = DateTime.UtcNow},
+                cascade.Answer()
+            );
             return new OkObjectResult(
                 new OkFromSmsRu(
                     phone,

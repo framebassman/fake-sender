@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using FakeSender.Api.Data;
 using FakeSender.Api.Models;
@@ -27,7 +28,8 @@ namespace FakeSender.Api.Controllers
             {
                 foreach (var email in emailList)
                 {
-                    _logger.LogInformation($"Received message to {email.To}");   
+                    _logger.LogInformation($"Received message to {email.To}");
+                    email.ReceivedAt = DateTime.UtcNow;
                 }
                 
                 _db.EmailBox.AddRangeAsync(emailList);
