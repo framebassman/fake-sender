@@ -1,5 +1,4 @@
-﻿using System;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 
 namespace FakeSender.Api.Models
 {
@@ -9,8 +8,6 @@ namespace FakeSender.Api.Models
         public int Id { get; set; }
         [JsonIgnore]
         public virtual string EntityId { get; set; }
-        [JsonIgnore]
-        public DateTime ReceivedAt { get; set; }
 
         public string ToJson()
         {

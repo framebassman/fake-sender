@@ -45,7 +45,7 @@ namespace FakeSender.Api.Controllers
                 )
             );
             this.TryToSaveMessage(
-                new Sms{Message = msg, To = phone.ToString(), ReceivedAt = DateTime.UtcNow},
+                new Sms{Message = msg, To = phone.ToString()},
                 cascade.Answer()
             );
             return new OkObjectResult(

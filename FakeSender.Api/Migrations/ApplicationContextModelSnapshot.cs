@@ -14,7 +14,7 @@ namespace FakeSender.Api.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.1-servicing-10028");
+                .HasAnnotation("ProductVersion", "2.2.0-rtm-35687");
 
             modelBuilder.Entity("FakeSender.Api.Models.Account", b =>
                 {
@@ -25,8 +25,6 @@ namespace FakeSender.Api.Migrations
 
                     b.Property<string>("Login")
                         .IsRequired();
-
-                    b.Property<DateTime>("ReceivedAt");
 
                     b.Property<string>("Service")
                         .IsRequired();
@@ -48,8 +46,6 @@ namespace FakeSender.Api.Migrations
 
                     b.Property<string>("PushToken");
 
-                    b.Property<DateTime>("ReceivedAt");
-
                     b.HasKey("Id");
 
                     b.ToTable("ApnsQueryBox");
@@ -63,8 +59,6 @@ namespace FakeSender.Api.Migrations
                     b.Property<string>("Attachments");
 
                     b.Property<string>("Html");
-
-                    b.Property<DateTime>("ReceivedAt");
 
                     b.Property<string>("Subject");
 
