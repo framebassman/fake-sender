@@ -1,6 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations.Schema;
-using Newtonsoft.Json;
+﻿using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FakeSender.Api.Models
 {
@@ -8,8 +6,6 @@ namespace FakeSender.Api.Models
     {
         public string To { get; set; }
         public string Message { get; set; }
-        [JsonIgnore]
-        public DateTime ReceivedAt { get; set; }
         
         [NotMapped]
         public override string EntityId => To;
