@@ -14,6 +14,7 @@ namespace FakeSender.Api.Models
         public Double Balance { get; set; }
         [Required]
         public String Login { get; set; }
+        public Limit Limit { get; set; }
         [NotMapped]
         public override string EntityId => this.Login;
     }
