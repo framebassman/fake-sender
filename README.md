@@ -8,6 +8,6 @@ Docker images are located on [docker hub](https://hub.docker.com/r/framebassman/
 | master        | ![Master status](https://api.travis-ci.com/FrameBassman/fake-sender.svg?branch=master "master status") |
 | dev           | ![Dev status](https://api.travis-ci.com/FrameBassman/fake-sender.svg?branch=dev "dev status")|
 
-![Docker pulls](https://shields.beevelop.com/docker/pulls/framebassman/fake-sender.svg?style=flat-square)
+![Docker pulls](https://img.shields.io/docker/pulls/framebassman/fake-sender.svg)
 ![Docker layers](https://shields.beevelop.com/docker/image/layers/framebassman/fake-sender/latest.svg)
 ![Docker image size](https://shields.beevelop.com/docker/image/image-size/framebassman/fake-sender/latest.svg)
